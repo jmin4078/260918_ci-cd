@@ -3,9 +3,9 @@ name: Continuous Integration & Package
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 env:
   REGISTRY: ghcr.io
@@ -42,7 +42,7 @@ jobs:
   docker-build-push:
     name: Build & Push Docker Image to GHCR
     needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-24.04-arm
     permissions:
       contents: read
